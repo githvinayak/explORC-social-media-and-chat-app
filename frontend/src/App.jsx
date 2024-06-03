@@ -1,9 +1,13 @@
-
+import { Button } from "@chakra-ui/react"
 
 function App() {
   return (
     <>
-      <h1>hello</h1>
+      <main className="flex justify-center">
+        <div className=" max-w-[620px] w-full">
+          <Button>Hello</Button>
+        </div>
+      </main>
     </>
   )
 }
