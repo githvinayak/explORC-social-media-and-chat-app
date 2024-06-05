@@ -1,7 +1,6 @@
 import { Avatar } from "@chakra-ui/avatar";
 import { Box, Flex, Text, VStack } from "@chakra-ui/layout";
 import React from "react";
-import pic from "../assets/user.jpg";
 import {
   Link,
   Menu,
@@ -43,7 +42,7 @@ const UserHeader = () => {
             </Flex>
           </Box>
           <Box>
-            <Avatar src={pic} size={"xl"} name='name' />
+            <Avatar src="/user.jpg" size={"xl"} name='name' />
           </Box>
         </Flex>
         <Text>Co-founder and chairman of meta</Text>
