@@ -11,11 +11,11 @@ function App() {
   return (
     <>
       <main className='flex justify-center'>
-        <div className=' max-w-[620px] w-full'>
+        <div className=' max-w-[620px] px-4 w-full'>
           <Header />
           <Routes>
             <Route path='/:username' element={<UserPage />} />
-            <Route path='/:username/posts/:pid' element={<PostPage />} />
+            <Route path='/:username/post/:pid' element={<PostPage />} />
           </Routes>
           <ToastContainer
             position='top-right'

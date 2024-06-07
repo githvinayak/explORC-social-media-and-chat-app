@@ -64,10 +64,9 @@ const UserPost = () => {
               </Flex>
             </Flex>
             <Text fontSize={"sm"}>This the title of this post.</Text>
-            <Box>
+            <Box borderRadius={6}>
               <Image
                 name='image'
-                borderRadius={6}
                 src='https://images.pexels.com/photos/24861559/pexels-photo-24861559/free-photo-of-view-of-a-beach.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load'
               />
             </Box>
@@ -114,9 +113,18 @@ const UserPost = () => {
               </Flex>
             </Flex>
             <Flex gap={2} alignItems={"center"}>
-              <Text fontSize={"sm"} color={"gray.light"}>128 replies</Text>
-              <Box h={0.5} w={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
-              <Text fontSize={"sm"} color={"gray.light"}>128 replies</Text>
+              <Text fontSize={"sm"} color={"gray.light"}>
+                128 replies
+              </Text>
+              <Box
+                h={0.5}
+                w={0.5}
+                borderRadius={"full"}
+                bg={"gray.light"}
+              ></Box>
+              <Text fontSize={"sm"} color={"gray.light"}>
+                128 replies
+              </Text>
             </Flex>
           </Flex>
         </Flex>
