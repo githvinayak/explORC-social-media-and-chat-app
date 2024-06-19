@@ -3,19 +3,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { MdVerified } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
-import { BiSolidUpvote } from "react-icons/bi";
-import { BiUpvote } from "react-icons/bi";
-import { BiDownvote } from "react-icons/bi";
-import { BiSolidDownvote } from "react-icons/bi";
-import { FaRegComment } from "react-icons/fa";
-import { PiShareFatBold } from "react-icons/pi";
+import Action from "./Action";
 
 const UserPost = () => {
   const [liked, setLiked] = useState(false);
   const [disliked, setDisliked] = useState(false);
   return (
     <>
-      <Link to={""}>
+      <Link to="/vinayak/post/1">
         <Flex gap={3} mb={4} py={5}>
           <Flex flexDirection={"column"} alignItems={"center"}>
             <Avatar size={"md"} name='vinayak' src='/user.jpg'></Avatar>
@@ -70,48 +65,7 @@ const UserPost = () => {
                 src='https://images.pexels.com/photos/24861559/pexels-photo-24861559/free-photo-of-view-of-a-beach.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load'
               />
             </Box>
-            <Flex gap={3} my={1}>
-              <Flex
-                gap={3}
-                my={2}
-                alignItems={"center"}
-                onClick={(e) => e.preventDefault()}
-              >
-                <Flex gap={2} p={1} bg={"gray.dark"} borderRadius={8}>
-                  {liked ? (
-                    <BiSolidUpvote
-                      className=' h-6 w-6 text-red-500'
-                      onClick={() => setLiked(!liked)}
-                    />
-                  ) : (
-                    <BiUpvote
-                      className=' h-6 w-6'
-                      onClick={() => {
-                        setLiked(!liked);
-                        setDisliked(false);
-                      }}
-                    />
-                  )}
-                  <Text>5</Text>
-                  {disliked ? (
-                    <BiSolidDownvote
-                      className=' h-6 w-6 text-red-500'
-                      onClick={() => setDisliked(!disliked)}
-                    />
-                  ) : (
-                    <BiDownvote
-                      className=' h-6 w-6'
-                      onClick={() => {
-                        setLiked(false);
-                        setDisliked(!disliked);
-                      }}
-                    />
-                  )}
-                </Flex>
-                <FaRegComment className='h-6 w-6 hover:animate-bounce transition-all' />
-                <PiShareFatBold className='h-6 w-6 hover:animate-bounce transition-all' />
-              </Flex>
-            </Flex>
+            <Action liked={liked} disliked={disliked} setLiked={setLiked} setDisliked={setDisliked}/>
             <Flex gap={2} alignItems={"center"}>
               <Text fontSize={"sm"} color={"gray.light"}>
                 128 replies
