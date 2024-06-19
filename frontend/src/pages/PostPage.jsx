@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MdVerified } from "react-icons/md";
-import { Avatar, Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Avatar, Box, Divider, Flex, Image, Text } from "@chakra-ui/react";
 import { BsThreeDots } from "react-icons/bs";
 import { BiSolidUpvote } from "react-icons/bi";
 import { BiUpvote } from "react-icons/bi";
@@ -8,6 +8,8 @@ import { BiDownvote } from "react-icons/bi";
 import { BiSolidDownvote } from "react-icons/bi";
 import { FaRegComment } from "react-icons/fa";
 import { PiShareFatBold } from "react-icons/pi";
+import Comment from "../components/Comment";
+import Action from "../components/Action";
 
 const PostPage = () => {
   const [liked, setLiked] = useState(false);
@@ -36,48 +38,7 @@ const PostPage = () => {
           src='https://images.pexels.com/photos/24861559/pexels-photo-24861559/free-photo-of-view-of-a-beach.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load'
         />
       </Box>
-      <Flex gap={3} my={1}>
-        <Flex
-          gap={3}
-          my={2}
-          alignItems={"center"}
-          onClick={(e) => e.preventDefault()}
-        >
-          <Flex gap={2} p={1} bg={"gray.dark"} borderRadius={8}>
-            {liked ? (
-              <BiSolidUpvote
-                className=' h-5 w-5 text-red-500'
-                onClick={() => setLiked(!liked)}
-              />
-            ) : (
-              <BiUpvote
-                className=' h-5 w-5'
-                onClick={() => {
-                  setLiked(!liked);
-                  setDisliked(false);
-                }}
-              />
-            )}
-            <Text> {128 + (liked ? 1 : 0) - (disliked ? 1 : 0)}</Text>
-            {disliked ? (
-              <BiSolidDownvote
-                className=' h-5 w-5 text-red-500'
-                onClick={() => setDisliked(!disliked)}
-              />
-            ) : (
-              <BiDownvote
-                className=' h-5 w-5'
-                onClick={() => {
-                  setLiked(false);
-                  setDisliked(!disliked);
-                }}
-              />
-            )}
-          </Flex>
-          <FaRegComment className='h-5 w-5 hover:animate-bounce transition-all' />
-          <PiShareFatBold className='h-5 w-5 hover:animate-bounce transition-all' />
-        </Flex>
-      </Flex>
+     <Action liked={liked} disliked={disliked} setLiked={setLiked} setDisliked={setDisliked}/>
       <Flex gap={2} alignItems={"center"}>
         <Text fontSize={"sm"} color={"gray.light"}>
           128 replies
@@ -87,6 +48,10 @@ const PostPage = () => {
           {128 + (liked ? 1 : 0) - (disliked ? 1 : 0)} likes
         </Text>
       </Flex>
+      <Divider my={4}/>
+      <Comment/>
+      <Comment/>
+      <Comment/>
     </>
   );
 };
